@@ -1,0 +1,230 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(130, 130, 130, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #242424;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+ul {
+  list-style-type: none; /* 移除默认的列表样式 */
+}
+
+#app {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+audio {
+  width: 450px;
+  margin: 30px 0;
+}
+
+.song-list-con {
+  box-sizing: border-box;
+  width: 1284px;
+  overflow: hidden;
+  /* border: 2px solid #535bf2; */
+  transition: transform 0.2s;
+}
+
+.song-list {
+  display: flex;
+  box-sizing: border-box;
+  padding: 10px 0;
+  flex-wrap: nowrap;
+  transition: transform 0.2s;
+}
+
+.song-list::-webkit-scrollbar {
+  display: none;
+}
+
+.song-list .song {
+  box-sizing: border-box;
+  flex: 0 0 auto; /* 不伸缩，不收缩，根据内容自动调整大小 */
+  font-size: 14px;
+  display: flex;
+  width: 280px;
+  height: 100px;
+  margin: 0 20px;
+  padding: 5px;
+  border-radius: 6px;
+  background-color: #fff;
+  border: 3px solid transparent;
+  transition: transform 0.2s;
+  box-shadow: 0px 2px 5px rgb(135, 134, 134); /* 水平偏移量, 垂直偏移量, 模糊度, 颜色和透明度 */
+}
+
+.song-list .song.play {
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0% {
+    border-color: #747bff; /* 边框颜色为红色 */
+  }
+  50% {
+    border-color: transparent; /* 边框颜色逐渐变为透明 */
+  }
+  100% {
+    border-color: #747bff; /* 边框颜色恢复为红色 */
+  }
+}
+
+.song-list .song .song-img {
+  box-sizing: border-box;
+  /* position: relative; */
+  width: 90px;
+  background-color: #747bff;
+  border-radius: 50px;
+  margin-right: 5px;
+  padding: 5px;
+  box-shadow: 0px 2px 4px rgb(135, 134, 134);
+  background-size: cover; /* 图片会被缩放以填充整个容器，可能会被裁剪 */
+  background-position: center; /* 图片在容器中居中显示 */
+}
+
+.song-list .song .song-img.play {
+  transform-origin: center center; /* 设置旋转的中心点为元素中心 */
+  animation: rotate 5s linear infinite; /* 应用名为rotate的动画，持续时间5秒，线性运动，无限循环 */
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg); /* 从0度开始旋转 */
+  }
+  to {
+    transform: rotate(360deg); /* 旋转到360度 */
+  }
+}
+
+/* .song-list .song .song-img span {
+  display: inline-block;
+  position: absolute;
+  top: calc(50% - 13px);
+  left: calc(50% - 13px);
+  z-index: 999;
+  width: 26px;
+  height: 26px;
+  border-radius: 20px;
+  background-color: #fff;
+} */
+
+.song-list .song .song-name {
+  box-sizing: border-box;
+  width: 165px;
+  padding: 5px;
+}
+
+.container {
+  height: 800px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+/* 清除 <ul> 的默认样式 */
+.container ul {
+  margin: 0; /* 移除外边距 */
+  padding: 0; /* 移除内边距 */
+  transition: transform 0.2s;
+}
+
+/* 清除 <li> 的默认样式 */
+.container ul li {
+  margin: 0; /* 移除外边距 */
+  padding: 0; /* 移除内边距 */
+  height: 40px;
+  line-height: 40px;
+  transition: transform 0.2s;
+}
+
+.container ul li.active {
+  color: #fff;
+  transform: scale(1.5);
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #3178c6aa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #b0b4b7;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
